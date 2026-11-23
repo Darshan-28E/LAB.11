@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Successful</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(135deg,#dcfce7,#dbeafe);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .box {
+            background: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px #0002;
+        }
+
+        h1 {
+            color: green;
+        }
+
+        p {
+            color: #555;
+        }
+
+        a {
+            display: inline-block;
+            background: #4f46e5;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 7px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>✓ Login Successful!</h1>
+
+    <p>Welcome, <b id="username"></b>!</p>
+
+    <p>You have successfully logged into the system.</p>
+
+    <a href="index.html" onclick="logout()">Logout</a>
+
+</div>
+
+<script>
+
+    let username = sessionStorage.getItem("loggedInUser");
+
+    if (!username) {
+        window.location.replace("index.html");
+    } else {
+        document.getElementById("username").textContent = username;
+    }
+
+    function logout() {
+        sessionStorage.removeItem("loggedInUser");
+    }
+
+</script>
+
+</body>
+</html>
